@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Header, Footer } from "./components/index";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import auth_services from "./appwrite/auth_services/auth_services";
+import { LogIn, LogOut } from "./store/features/AuthSlice";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      try {
+        const UserData = await auth_services.getUser_status();
+
+        if (UserData) {
+          dispatch(LogIn( {UserData} ));
+        } else {
+          dispatch(LogOut());
+        }
+      } catch (error) {
+        console.error("Authentication check failed:", error);
+        dispatch(LogOut());
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuthStatus();
+  }, [dispatch]); 
+
+  if (loading) {
+    return (
+      <div className="bg-gray-400 h-screen w-full flex justify-center items-center">
+        <div className="text-2xl font-bold">Loading...</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
+
+  return !loading ? (
+    <div className="min-h-screen bg-gray-400 flex flex-col">
+      <Header />
+      <main className="flex-grow p-4 flex justify-center items-center">
+    
+          <Outlet />
+       
+      </main>
+      <Footer />
+    </div>
+  ):null
 }
 
-export default App
+export default App;
