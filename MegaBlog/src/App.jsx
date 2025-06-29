@@ -42,7 +42,7 @@ function App() {
   return !loading ? (
     <div className="min-h-screen bg-[#F4F6F8] flex flex-col">
       <Header />
-      <main className="flex-grow p-4 flex justify-center items-center">
+      <main className="flex-grow py-2 px-4 flex justify-center items-center">
         <Outlet />
       </main>
       <Footer />
