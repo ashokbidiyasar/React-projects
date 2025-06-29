@@ -33,23 +33,21 @@ function App() {
 
   if (loading) {
     return (
-      <div className="bg-gray-400 h-screen w-full flex justify-center items-center">
-        <div className="text-2xl font-bold">Loading...</div>
+      <div className="bg-gray-800 h-screen w-full flex justify-center items-center">
+        <div className="text-xl font-bold">Loading...</div>
       </div>
     );
   }
 
   return !loading ? (
-    <div className="min-h-screen bg-gray-400 flex flex-col">
+    <div className="min-h-screen bg-[#F4F6F8] flex flex-col">
       <Header />
       <main className="flex-grow p-4 flex justify-center items-center">
-    
-          <Outlet />
-       
+        <Outlet />
       </main>
       <Footer />
     </div>
-  ):null
+  ) : null;
 }
 
 export default App;
