@@ -7,7 +7,7 @@ const Left_half = () => {
     const Image_url = UserData.avatar_url;
   return (
     <div className="flex flex-col w-full h-full  justify-center items-end">
-      <img src={Image_url} alt="Error 404 " className="w-[325px] h-[325px] rounded-[50%]" />
+      <img src={Image_url} alt="Error 404 " className="w-2/5 h-2/5 rounded-[50%]" />
     </div>
   );
 }
