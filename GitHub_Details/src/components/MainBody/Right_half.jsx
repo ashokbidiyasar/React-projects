@@ -7,7 +7,7 @@ const Right_half = () => {
     <div className="w-full h-full flex justify-start mt-[20%] ml-4">
       <div className="flex flex-col ml-3 space-y-5">
         <div className=" flex text-lg flex-wrap mt-3 pl-10  w-[450px] ">
-          {UserData.login !== null && <p className="font-semibold text-3xl mt-2 mb-5">Hi, I'am {UserData.login} </p>}
+          {UserData.login !== null && <p className="font-semibold text-3xl mt-2 mb-5">Hi, I'am {UserData.name?UserData.name:UserData.login} </p>}
           <span>{UserData.bio}</span>
           {UserData.company !== null && <p className="text-2xl">I work at {UserData.company}</p>}
         </div>
