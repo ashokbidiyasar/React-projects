@@ -6,8 +6,8 @@ const Left_half = () => {
     console.log(UserData);
     const Image_url = UserData.avatar_url;
   return (
-    <div className="flex flex-col w-full h-full  ml-[40%] mt-[25%]">
-      <img src={Image_url} alt="Error 404 " className="w-[400px] h-[400px] rounded-[50%]" />
+    <div className="flex flex-col w-full h-full  justify-center items-end">
+      <img src={Image_url} alt="Error 404 " className="w-[325px] h-[325px] rounded-[50%]" />
     </div>
   );
 }

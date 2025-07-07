@@ -4,9 +4,9 @@ import logo from '../../assets/github-mark-white.svg'
 const Header = () => {
 
   return (
-    <div className="fixed top-0 left-0 w-full h-16 flex items-center justify-around bg-gray-700 text-lg text-white z-20">
+    <div className="fixed top-0 left-0 w-full h-16 flex items-center justify-around bg-gray-700 text-md text-white z-20">
       <div className="w-1/2 font-semibold text-white my-2 mx-6 py-1 ">
-        <p className="pl-10 flex space-x-4 items-center"><span className='text-xl'>GitHub</span><img src={logo} alt="logo" className='h-[50%] w-[6%]' /></p>
+        <p className="pl-10 flex space-x-4 items-center"><span className='text-lg'>GitHub</span><img src={logo} alt="logo" className='h-[50%] w-[5%]' /></p>
       </div>
 
       <div className=" font-semibold text-white flex  my-2 py-1 ">
